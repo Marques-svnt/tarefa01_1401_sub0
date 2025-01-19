@@ -46,8 +46,11 @@ pico_enable_stdio_usb(main 0)
 
 # Add the standard library to the build
 target_link_libraries(main
-        pico_stdlib)
-
+    pico_stdlib
+    hardware_pwm
+    hardware_clocks
+    pico_cyw43_arch_none # Adiciona suporte ao CYW43 sem multitarefa
+)
 # Add the standard include files to the build
 target_include_directories(main PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}
@@ -59,4 +62,7 @@ target_link_libraries(main
         )
 
 pico_add_extra_outputs(main)
+
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
 
