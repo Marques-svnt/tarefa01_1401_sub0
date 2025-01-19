@@ -6,7 +6,7 @@
 
 
 void allOn(){
-    gpio_put(LED_VERMELHO, 1);
-    gpio_put(LED_B_PIN, 1);
-    gpio_put(LED_GREEN, 1);
+    gpio_put(13, 1);
+    gpio_put(12, 1);
+    gpio_put(11, 1);
 }
