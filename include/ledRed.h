@@ -2,6 +2,6 @@
 #define LEDRED_H
 
 //Declaração da função ledRed
-void ledRed();
+void Lig_Led_R();
 
 #endif

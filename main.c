@@ -149,11 +149,11 @@ int main() {
 
         // Controle baseado em teclas específicas
         if (key == 'A') {
-            ledRed();
+            Lig_Led_R();
         } else if (key == 'B') {
-            ledBlue();
+            Lig_Led_B();
         } else if (key == 'C') {
-            ledGreen();
+            Lig_Led_Green();
         } else if (key == 'D') {
             allOn();
         } else if (key == '#') {
