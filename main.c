@@ -8,15 +8,13 @@
 #include "ledGreen.h"
 #include "allOff.h"
 #include "allOn.h"
+#include "buzzer.h"
 
 // Definição dos pinos dos LEDs e buzzer
 #define LED_VERMELHO 13  // LED vermelho
 #define LED_B_PIN 12  // LED azul
 #define LED_GREEN 11 // LED verde
-#define BUZZER_PIN 21    // Buzzer
-#define BUZZER_FREQ_HZ 3200 // Configuração da frequência do buzzer (em Hz)
-#define HIGH 4096
-#define LOW 0
+#define BUZZER 21    // Buzzer
 
 // Definição dos pinos do teclado
 uint columns[4] = {4, 3, 2, 28}; // Pinos das colunas
@@ -108,25 +106,12 @@ char pico_keypad_get_key(void) {
     }
 }
 
-void init_buzzer_pwm() {
-    // Configurar o pino como saída de PWM
-    gpio_set_function(BUZZER_PIN, GPIO_FUNC_PWM);
-    // Obter o slice do PWM associado ao pino
-    uint slice_num = pwm_gpio_to_slice_num(BUZZER_PIN);
-    // Configurar o PWM com frequência desejada
-    pwm_config cfg = pwm_get_default_config();
-    pwm_config_set_clkdiv(&cfg, clock_get_hz(clk_sys) / (BUZZER_FREQ_HZ * HIGH)); // Divisor de clock
-    pwm_init(slice_num, &cfg, true);
-    // Iniciar o PWM no nível baixo
-    pwm_set_gpio_level(BUZZER_PIN, LOW);
-}
-
 // Inicializa LEDs e buzzer
 void init_peripherals() {
     gpio_init(LED_VERMELHO);
     gpio_init(LED_B_PIN);
     gpio_init(LED_GREEN);
-    init_buzzer_pwm(BUZZER_PIN);// Inicializar o PWM no pino do buzzer
+    init_buzzer(BUZZER);// Inicializar o PWM no pino do buzzer
 
     gpio_set_dir(LED_VERMELHO, GPIO_OUT);
     gpio_set_dir(LED_B_PIN, GPIO_OUT);
@@ -157,12 +142,10 @@ int main() {
         } else if (key == 'D') {
             allOn();
         } else if (key == '#') {
-            pwm_set_gpio_level(BUZZER_PIN, HIGH);
+            buzzer();
         } else {
             // Desliga tudo se nenhuma tecla esperada for pressionada
             allOff();
-            pwm_set_gpio_level(BUZZER_PIN, LOW);
         }
-        busy_wait_us(70000); // Pequeno delay para debounce
     }
 }
