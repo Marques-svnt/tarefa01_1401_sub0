@@ -2,24 +2,24 @@
 
 #include "pico/stdlib.h"
 
-
-#include "pico/stdlib.h"
-
 // Definição do GPIO do LED vermelho
 #define LED_VERMELHO 13
 
-int main() {
-    // Inicializa o GPIO do LED vermelho
-    gpio_init(LED_VERMELHO);
-    gpio_set_dir(LED_VERMELHO, GPIO_OUT);
+void Lig_Led_R() {
+    gpio_put(LED_VERMELHO, 1);  // Liga o LED vermelho
+    gpio_put(11, 0);         // Desliga o LED verde
+    gpio_put(12, 0);         // Desliga o LED azul
+}
+int main()
+{
 
-    // Liga o LED vermelho
-    gpio_put(LED_VERMELHO, 1);
+    //configuração inicial Leds
+    gpio_init(LED_VERMELHO);//inicia o pino 
+    gpio_set_dir(LED_VERMELHO, GPIO_OUT);//define como saída 
 
-    while (true) {
-        // Mantém o LED ligado indefinidamente
-        tight_loop_contents();
+    while(true){
+       
     }
-
     return 0;
 }
+
