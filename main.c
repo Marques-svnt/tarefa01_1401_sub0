@@ -3,7 +3,7 @@
 #include "pico/stdlib.h"
 
 // Definição do GPIO do LED vermelho
-#define LED_VERMELHO 13
+#define LED_VERMELHO 13 //Ligando a porta 13
 
 void Lig_Led_R() {
     gpio_put(LED_VERMELHO, 1);  // Liga o LED vermelho
