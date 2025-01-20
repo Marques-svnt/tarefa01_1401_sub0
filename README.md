@@ -41,6 +41,8 @@ Este projeto utiliza um teclado matricial 4x4 conectado a um Raspberry Pi Pico p
 | **C** | Liga o LED verde.                  |
 | **D** | Liga todos os LEDs simultaneamente.|
 | **#** | Ativa o buzzer.                    |
+| **\*** | Habilita o modo de gravação USB.  |
+
 ---
 
 ## Compilação e Execução
@@ -49,7 +51,7 @@ Este projeto utiliza um teclado matricial 4x4 conectado a um Raspberry Pi Pico p
 2. Compile o programa utilizando a extensão **Raspberry Pi Pico Project** no VS Code:
    - Abra o projeto no VS Code.
    - Vá até a extensão do **Raspberry pi pico project** e clique em **Compile Project**.
-3. Coloque a placa em modo boot cel e copie o arquivo `main.uf2`, que está na pasta build, para o microcontrolador conectado via USB.
+3. Coloque a placa em modo boot cell e copie o arquivo `main.uf2`, que está na pasta build, para o microcontrolador conectado via USB.
 
 ---
 
@@ -64,21 +66,30 @@ Para testar o programa sem hardware físico, você pode utilizar o **Wokwi** par
 
 ---
 
-## Colaboradores.
+## Demonstração no YouTube
+
+Confira a demonstração completa deste projeto no YouTube: [Demonstração do Projeto](https://www.youtube.com/watch?v=fINa_KHTm8c)
+
+---
+
+## Colaboradores
 
 - [brunaalvescabral - Bruna Alves Cabral ](https://github.com/brunaalvescabral)
 - [iagovirgilio - Iago Virgílio Lopes Macedo de Oliveira](https://github.com/iagovirgilio)
 - [ribeiro51 - Lucas Borges Ribeiro](https://github.com/ribeiro51)
 - [PauloCesar53 - Paulo César de Jesus Di Lauro ](https://github.com/PauloCesar53)
 - [marques-svnt - Gabriel Marques de Andrade ](https://github.com/Marques-svnt)
-- [ArieldosSantosdeCristo -Ariel dos Santos de Cristo Góes ](https://github.com/ArieldosSantosdeCristo)
+- [ArieldosSantosdeCristo - Ariel dos Santos de Cristo Góes ](https://github.com/ArieldosSantosdeCristo)
 - [Ma756-max - Marcelo Rick Almeida Santos](https://github.com/Ma756-max)
 - [amandatsantos - Amanda Tavares Santos](https://github.com/amandatsantos)
+
 ---
 
 ## Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
 
+
 # tarefa01_1401_sub2
 Tarefa 1 da aula síncrona do dia 14/01 do subgrupo 2 do grupo 0
+
