@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
+#include "pico/bootrom.h" // Para o comando de reboot
 #include "pico/cyw43_arch.h"
 #include "hardware/clocks.h"
 #include "hardware/pwm.h"
@@ -12,9 +13,9 @@
 
 // Definição dos pinos dos LEDs e buzzer
 #define LED_VERMELHO 13  // LED vermelho
-#define LED_B_PIN 12  // LED azul
-#define LED_GREEN 11 // LED verde
-#define BUZZER 21    // Buzzer
+#define LED_B_PIN 12     // LED azul
+#define LED_GREEN 11     // LED verde
+#define BUZZER 21        // Buzzer
 
 // Definição dos pinos do teclado
 uint columns[4] = {4, 3, 2, 28}; // Pinos das colunas
@@ -111,7 +112,7 @@ void init_peripherals() {
     gpio_init(LED_VERMELHO);
     gpio_init(LED_B_PIN);
     gpio_init(LED_GREEN);
-    init_buzzer(BUZZER);// Inicializar o PWM no pino do buzzer
+    init_buzzer(BUZZER); // Inicializar o PWM no pino do buzzer
 
     gpio_set_dir(LED_VERMELHO, GPIO_OUT);
     gpio_set_dir(LED_B_PIN, GPIO_OUT);
@@ -121,7 +122,6 @@ void init_peripherals() {
     gpio_put(LED_B_PIN, 0);
     gpio_put(LED_GREEN, 0);
 }
-
 
 // Função principal
 int main() {
@@ -143,6 +143,9 @@ int main() {
             allOn();
         } else if (key == '#') {
             buzzer();
+        } else if (key == '*') {
+            printf("Habilitando o modo de gravação...\n");
+            reset_usb_boot(0, 0); // Reinicia no modo USB bootloader
         } else {
             // Desliga tudo se nenhuma tecla esperada for pressionada
             allOff();
