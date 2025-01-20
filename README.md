@@ -1,3 +1,4 @@
+
 # Projeto: Teclado Matricial com Raspberry Pi Pico
 
 ## Descrição
@@ -78,3 +79,6 @@ Para testar o programa sem hardware físico, você pode utilizar o **Wokwi** par
 ## Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
+
+# tarefa01_1401_sub2
+Tarefa 1 da aula síncrona do dia 14/01 do subgrupo 2 do grupo 0
